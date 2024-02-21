@@ -1,0 +1,50 @@
+﻿@page "/includeProduct"
+
+<PageTitle>Incluão de Produto</PageTitle>
+
+<h1>Inclusão de produto</h1>
+<div>
+    <form action="">
+        <div>
+
+            <div class="mb-3">
+                <label for="name">Nome</label>
+                <div>
+                    <input type="text" id="name" name="name">
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="quantity">Quantidade</label>
+                <div>
+                    <input type="number" id="quantity" name="quantity" value="0" min="1" max="10000">
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="unitValue">Valor Unitário</label>
+                <div>
+                    <input type="text" id="unitValue" name="unitValue">
+                </div>
+            </div>
+
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">Categoria</label>
+                </div>
+                <select class="custom-select" id="inputGroupSelect01">
+                    <option selected>Escolha...</option>
+                    <option value="1">Mercearia</option>
+                    <option value="2">Carnes</option>
+                    <option value="3">Frios</option>
+                    <option value="4">Higiene</option>
+                    <option value="4">Limpeza</option>
+                    <option value="4">HortiFruit</option>
+                </select>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Salvar</button>
+    </form>
+</div>
