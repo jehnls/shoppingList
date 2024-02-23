@@ -1,0 +1,86 @@
+﻿@page "/"
+@attribute [StreamRendering]
+
+<PageTitle>shoppingList</PageTitle>
+<div class="row col-xs-12 col-sm-12 col-md-12 col-lg-12" align="center">
+    <h1>Atacadão</h1>
+</div>
+
+<div class=" container">
+    <div class=row>
+        <div class=col>
+            <h3>R$1000,00</h3>
+        </div>
+        <div class=col>
+
+        </div>
+        <div class=col>
+            <h3>R$@total
+            </h3>
+        </div>
+    </div>
+</div>
+
+
+
+
+@if (products == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+    <thead>
+        <tr>
+            <th>Produto</th>
+            <th>Quantidade</th>
+            <th>Valor unitário</th>
+            <th>Valor Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in products)
+            {
+                <tr>
+                    <td>@product.name</td>
+                    <td>@product.quantity</td>
+                    <td>@product.unitValue</td>
+                    <td>@total</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<div>
+    <button class="btn btn-primary">+</button>
+
+</div>
+
+@code {
+    private class Product {
+        public string name {get; set;}
+        public int quantity {get; set;}
+        public double? unitValue {get; set;}
+        public string? category {get; set;}
+     } 
+
+    List<Product> products = new List<Product>();
+
+    double total ;
+    protected override async Task OnInitializedAsync()
+    {
+        var pd = new Product {name= "Arroz", category="Mercearia", quantity=2, unitValue = 20.00 }; 
+        products.Add(pd);
+    
+
+        total += pd.quantity * (double) pd.unitValue;
+        
+    }
+
+ 
+ 
+
+
+}
